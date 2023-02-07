@@ -1,0 +1,23 @@
+FROM node:18-alpine 
+
+WORKDIR /app
+
+ARG REACT_APP_MAX_DAYS_FORECAST
+ARG REACT_APP_BACKEND_URL
+ENV REACT_APP_MAX_DAYS_FORECAST $REACT_APP_MAX_DAYS_FORECAST
+ENV REACT_APP_BACKEND_URL $REACT_APP_BACKEND_URL
+
+ENV PORT 3000
+
+COPY package.json .
+COPY package-lock.json .
+RUN npm ci 
+
+COPY . .
+RUN npm run build
+
+ENV NODE_ENV production
+
+EXPOSE 3000
+
+CMD [ "npm", "run", "start" ]
