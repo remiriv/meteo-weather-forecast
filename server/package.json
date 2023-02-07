@@ -11,11 +11,7 @@
   "scripts": {
     "start": "node built/index.js",
     "build": "tsc",
-    "dev": "NODE_ENV=development ts-node-dev --respawn ./src/index.ts",
-    "env:default": "cp .env.example .env",
-    "check-type": "tsc --noEmit",
-    "lint:fix": "eslint . --fix",
-    "prettier:write": "npx prettier --write ."
+    "prettier": "npx prettier --write ."
   },
   "engines": {
     "node": "^18.13.0"

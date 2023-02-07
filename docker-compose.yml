@@ -1,0 +1,28 @@
+version: "3.5"
+services: 
+  server:
+    build:
+      dockerfile: Dockerfile
+      context: "./server"
+      args:
+        APP_ID: ${APP_ID}    
+    environment:
+      APP_ID: ${APP_ID}    
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    ports:
+      - 8080:8080
+
+  client:
+    ports:
+      - 3000:3000
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+      args:
+        REACT_APP_MAX_DAYS_FORECAST: 3
+        REACT_APP_BACKEND_URL: 'http://localhost:8080'
+    volumes:
+      - /app/node_modules
+      - ./client:/app
