@@ -35,7 +35,11 @@ Then, run the following commands:
     APP_ID=<<YOUR_API_KEY>> docker-compose build
     APP_ID=<<YOUR_API_KEY>> docker-compose up
 
+Then, use your browser to go to: 
 
+    http://localhost:3000/
+
+and you should see the map ! 
 
 # Possible improvements 
 
